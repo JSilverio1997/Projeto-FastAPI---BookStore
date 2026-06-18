@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/v1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repositories/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/schemas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookstore/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookstore/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookstore/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookstore/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookstore/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bookstore/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas para arquitetura fastAPI padrão" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,6 +163,15 @@
       <option name="presentableId" value="Default" />
       <updated>1781453477225</updated>
     </task>
+    <task id="LOCAL-00001" summary="Alterações efetuadas para arquitetura fastAPI padrão">
+      <option name="closed" value="true" />
+      <created>1781759279951</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1781759279951</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,5 +184,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Alterações efetuadas para arquitetura fastAPI padrão" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas para arquitetura fastAPI padrão" />
   </component>
 </project>
