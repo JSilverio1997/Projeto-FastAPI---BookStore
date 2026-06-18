@@ -1,8 +1,13 @@
 from fastapi import HTTPException
-from src.bookstore.schemas import BookIn, BookUpdate, GenreEnum
+from src.schemas.schemas import BookIn, GenreEnum
 
 
 class BookException:
+
+    @staticmethod
+    def index_book_not_found(index: int, book: list):
+        if not book:
+            raise HTTPException(status_code=404, detail=f"Book at index {index} not found.")
 
     @staticmethod
     def book_not_found(book: dict):
@@ -17,12 +22,12 @@ class BookException:
     @staticmethod
     def book_already_exist(book_name: str, books: list):
         if book_name:
-            if book_name.upper() in books.__str__().upper():
+            if any(book["book_name"].upper() == book_name.upper() for book in books):
                 raise HTTPException(status_code=400, detail="This book already exist in the list.")
 
     @staticmethod
     def book_id_not_found(book_id: str):
-        raise HTTPException(status_code=404, detail=f"This book id {book_id} not exist.")
+        raise HTTPException(status_code=404, detail=f"Book with id '{book_id}' does not exist.")
 
     @staticmethod
     def invalid_book_name(book: BookIn):

@@ -1,26 +1,31 @@
 import random
-from typing import Any
+from typing import Any, List, Set
 from fastapi.encoders import jsonable_encoder
-from src.bookstore.repository import (get_all_books, get_book_by_index, add_book, delete_book_list, update_book_dict,
-                                      replace_book_dict)
-from src.bookstore.schemas import BookIn, BookOut, BookUpdate, GenreEnum
+from src.repositories.repository import (get_all_books, get_book_by_index, add_book, delete_book_list, update_book_dict,
+                                         replace_book_dict)
+from src.schemas.schemas import BookIn, BookOut, BookUpdate
 from src.exception.book_exception import BookException
 
 
-def list_all_books() -> list:
+def list_all_books() -> list[BookOut]:
     books = get_all_books()
     BookException.book_list_empty(books)
-    return books
+
+    # list_book_outs = []
+    # for book in books:
+    #     book_out = BookOut(**book)
+    #     list_book_outs.append(book_out)
+
+    return [BookOut(**book)for book in books]
 
 
-def list_book_by_id(index: int) -> dict:
+def list_book_by_position(index: int) -> BookOut:
     book = get_book_by_index(index)
-    BookException.book_not_found(book)
+    BookException.index_book_not_found(index, book)
+    return BookOut(**book)
 
-    return book
 
-
-def list_random_book() -> dict:
+def list_random_book() -> BookOut:
     book_random = get_all_books()
     BookException.book_list_empty(book_random)
 
@@ -49,10 +54,11 @@ def remove_book(book_id: str) -> None:
     # if excluded:
     #     return {"message": f"The book {book_id} was deleted."}
     #
-    # BookException.book_id_not_found(book_id)
+    if excluded is False:
+        BookException.book_id_not_found(book_id)
 
 
-def update_book(book_id: str, book_update: BookUpdate) -> Any | None:
+def update_book(book_id: str, book_update: BookUpdate) -> BookOut:
     books = get_all_books()
 
     BookException.invalid_book_name(book_update)
@@ -62,12 +68,12 @@ def update_book(book_id: str, book_update: BookUpdate) -> Any | None:
 
     updated_book = update_book_dict(book_id, book_update.dict(exclude_unset=True))
     if updated_book is not None:
-        return jsonable_encoder(updated_book)
+        return BookOut(**updated_book)
     else:
         BookException.book_id_not_found(book_id)
 
 
-def replace_book(book_id: str, book: BookIn):
+def replace_book(book_id: str, book: BookIn) -> BookOut:
     books = get_all_books()
 
     BookException.invalid_book_name(book)
@@ -75,8 +81,8 @@ def replace_book(book_id: str, book: BookIn):
     BookException.invalid_genre(book)
     BookException.invalid_price(book)
 
-    replaced_book = replace_book_dict(book_id, book.dict(exclude_unset=True))
+    replaced_book = replace_book_dict(book_id, book.dict())
     if replaced_book is not None:
-        return jsonable_encoder(replaced_book)
+        return BookOut(**replaced_book)
 
     BookException.book_id_not_found(book_id)

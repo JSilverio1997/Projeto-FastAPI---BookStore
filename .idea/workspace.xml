@@ -5,30 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/fastApi1HoraCurso.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.python-version" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bookstore/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bookstore/repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bookstore/routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bookstore/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bookstore/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bookstore/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exception/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exception/book_exception.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uv.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/v1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schemas/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bookstore/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +51,22 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.book_exception.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.services (1).executor": "Run",
     "Python.services.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src" />
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\utils" />
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\api\v1" />
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\api" />
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\schemas" />
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\services" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.book_exception">
+  <component name="RunManager" selected="Python.services (1)">
     <configuration name="book_exception" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApi1HoraCurso" />
       <option name="ENV_FILES" value="" />
@@ -114,6 +111,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="services (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApi1HoraCurso" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/services" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/services/services.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="services" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApi1HoraCurso" />
       <option name="ENV_FILES" value="" />
@@ -127,7 +146,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/bookstore/services.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\services\services.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,6 +157,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.services (1)" />
         <item itemvalue="Python.book_exception" />
         <item itemvalue="Python.services" />
         <item itemvalue="Python.main" />
@@ -161,5 +181,16 @@
       <updated>1781453477225</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
