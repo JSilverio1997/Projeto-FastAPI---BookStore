@@ -16,16 +16,24 @@ def get_book_by_index(index: int) -> Any:
     return book_database[index]
 
 
-def add_book(book: dict) -> None:
-    book_database.append(book)
-    write_json(BOOK_PATH, book_database)
+def get_book_by_book_id(book_id: str) -> dict | None:
+    for book in book_database:
+        if book.get("book_id") == book_id:
+            return book
+
+    return None
 
 
 def check_book_id(book_id: str) -> int | None:
     for index, book in enumerate(book_database):
-        if book['book_id'] == book_id:
+        if book.get("book_id") == book_id:
             return index
     return None
+
+
+def add_book(book: dict) -> None:
+    book_database.append(book)
+    write_json(BOOK_PATH, book_database)
 
 
 def delete_book_list(book_id: str) -> bool:

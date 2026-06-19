@@ -1,12 +1,7 @@
 import uuid
-from enum import Enum
+from src.enums.GenreEnum import GenreEnum
 from typing import Optional
 from pydantic import BaseModel, Field, field_validator
-
-
-class GenreEnum(str, Enum):
-    FICTION = "Fiction"
-    NO_FICTION = "Non_Fiction"
 
 
 class BookIn(BaseModel):

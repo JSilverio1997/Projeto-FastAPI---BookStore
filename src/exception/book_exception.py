@@ -5,7 +5,7 @@ from src.schemas.schemas import BookIn, GenreEnum
 class BookException:
 
     @staticmethod
-    def index_book_not_found(index: int, book: list):
+    def index_book_not_found(index: int, book: dict):
         if not book:
             raise HTTPException(status_code=404, detail=f"Book at index {index} not found.")
 
