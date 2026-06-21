@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from src.schemas.schemas import BookIn, GenreEnum
+from src.schemas.book import BookCreate, GenreEnum
 
 
 class BookException:
@@ -30,19 +30,19 @@ class BookException:
         raise HTTPException(status_code=404, detail=f"Book with id '{book_id}' does not exist.")
 
     @staticmethod
-    def invalid_book_name(book: BookIn):
+    def invalid_book_name(book: BookCreate):
         if book.book_name is not None:
             if not book.book_name.strip():
                 raise HTTPException(status_code=400, detail="The Book name must be to fill.")
 
     @staticmethod
-    def invalid_price(book: BookIn):
+    def invalid_price(book: BookCreate):
         if book.price is not None:
             if book.price <= 0:
                 raise HTTPException(status_code=400, detail="The price is not allow to be less or equal 0.")
 
     @staticmethod
-    def invalid_genre(book: BookIn):
+    def invalid_genre(book: BookCreate):
         if book.genre is not None:
             if book.genre not in (GenreEnum.FICTION, GenreEnum.NO_FICTION):
                 raise HTTPException(status_code=400, detail="The genre field is not allow to be empty and values must "

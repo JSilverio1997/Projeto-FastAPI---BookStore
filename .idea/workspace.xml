@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas para arquitetura fastAPI padrão">
-      <change afterPath="$PROJECT_DIR$/src/enums/GenreEnum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/__init__.py" afterDir="false" />
+    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos.">
+      <change afterPath="$PROJECT_DIR$/src/database/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/book.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/v1/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exception/book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schemas/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/book.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/services.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,25 +44,29 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.book.executor&quot;: &quot;Run&quot;,
     &quot;Python.book_exception.executor&quot;: &quot;Run&quot;,
+    &quot;Python.connection_db.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
     &quot;Python.services (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.services.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;FeaturesTrainerSettingsPanel&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src" />
+      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\database\models" />
       <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\utils" />
       <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\api\v1" />
       <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\api" />
-      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\schemas" />
-      <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\services" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.services (1)">
-    <configuration name="book_exception" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.book">
+    <configuration name="book" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApi1HoraCurso" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -69,11 +75,33 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/exception" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/schemas" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/exception/book_exception.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/schemas/book.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="connection_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApi1HoraCurso" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/db" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/db/connection_db.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -104,6 +132,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApi1HoraCurso" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/schemas" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\database\models\models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="services (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApi1HoraCurso" />
       <option name="ENV_FILES" value="" />
@@ -126,34 +176,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="services" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fastApi1HoraCurso" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/bookstore" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\services\services.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.services (1)" />
-        <item itemvalue="Python.book_exception" />
-        <item itemvalue="Python.services" />
+        <item itemvalue="Python.book" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.models" />
+        <item itemvalue="Python.connection_db" />
+        <item itemvalue="Python.services (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +210,31 @@
       <option name="project" value="LOCAL" />
       <updated>1781759279951</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos.">
+      <option name="closed" value="true" />
+      <created>1781844311710</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1781844311710</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos.">
+      <option name="closed" value="true" />
+      <created>1781844341598</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781844341598</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos.">
+      <option name="closed" value="true" />
+      <created>1781844353803</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781844353803</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +250,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alterações efetuadas para arquitetura fastAPI padrão" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas para arquitetura fastAPI padrão" />
+    <MESSAGE value="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos." />
   </component>
 </project>

@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic import BaseModel, Field, field_validator
 
 
-class BookIn(BaseModel):
+class BookCreate(BaseModel):
     book_name: str
     price: float
     genre: GenreEnum
@@ -31,14 +31,29 @@ class BookIn(BaseModel):
         return genre
 
 
-class BookOut(BookIn):
-    book_id: Optional[str] = Field(default_factory=lambda: str(uuid.uuid4().hex))
+class BookCreateOut(BookCreate):
+    book_id: str = Field(default_factory=lambda: str(uuid.uuid4().hex))
 
 
-class BookUpdate(BookIn):
+class BookResponse(BookCreateOut):
+    book_id: str
+
+
+class BookPatch(BookCreate):
     book_name: Optional[str] = None
     price: Optional[float] = None
     genre: Optional[GenreEnum] = None
 
 
+class BookPut(BookCreate):
+    book_name: str
+    price: float
+    genre: GenreEnum
+
+
+class BookPaginatedResponse(BaseModel):
+    page: int
+    size: int
+    total: int
+    data: list[BookCreateOut]
 
