@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos.">
-      <change afterPath="$PROJECT_DIR$/src/database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/v1/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schemas/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/services.py" afterDir="false" />
-    </list>
+    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, criação classe de response, riação de conexão com banco de dados e restruturação para contemplar model para criação de tabela" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781844353803</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Alterações efetuadas, criação classe de response, riação de conexão com banco de dados e restruturação para contemplar model para criação de tabela">
+      <option name="closed" value="true" />
+      <created>1782017058080</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1782017058080</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +247,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alterações efetuadas para arquitetura fastAPI padrão" />
     <MESSAGE value="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas, criação de API get por book_id, ajuste no processo de exception de get_all_books para quando a lista esta vazia, criação de parametros query para paginação e por filtro de nome de livro, genero ou ambos, e ajuste de exception para enums de vez codigos fixos." />
+    <MESSAGE value="Alterações efetuadas, criação classe de response, riação de conexão com banco de dados e restruturação para contemplar model para criação de tabela" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas, criação classe de response, riação de conexão com banco de dados e restruturação para contemplar model para criação de tabela" />
   </component>
 </project>
