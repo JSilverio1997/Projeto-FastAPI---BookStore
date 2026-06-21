@@ -2,13 +2,13 @@ import random
 
 
 from fastapi.encoders import jsonable_encoder
-from src.repositories.repository import (get_all_books,
-                                         get_book_by_index,
-                                         add_book,
-                                         delete_book_list,
-                                         update_book_dict,
-                                         replace_book_dict,
-                                         get_book_by_book_id)
+from src.repositories.book_repository import (get_all_books,
+                                              get_book_by_index,
+                                              add_book,
+                                              delete_book_list,
+                                              update_book_dict,
+                                              replace_book_dict,
+                                              get_book_by_book_id)
 from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookResponse, BookPaginatedResponse
 from src.exception.book_exception import BookException
 

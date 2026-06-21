@@ -3,15 +3,15 @@ from typing import Optional
 from starlette import status
 from fastapi import APIRouter, Query
 from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookPaginatedResponse
-from src.services.services import (list_all_books,
-                                   list_book_by_position,
-                                   list_random_book,
-                                   add_new_book,
-                                   remove_book,
-                                   update_book,
-                                   replace_book,
-                                   return_book_by_book_id,
-                                   list_paginate_books)
+from src.services.book_services import (list_all_books,
+                                        list_book_by_position,
+                                        list_random_book,
+                                        add_new_book,
+                                        remove_book,
+                                        update_book,
+                                        replace_book,
+                                        return_book_by_book_id,
+                                        list_paginate_books)
 
 
 router = APIRouter(prefix="/books", tags=["books"])
