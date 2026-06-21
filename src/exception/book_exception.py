@@ -22,7 +22,7 @@ class BookException:
     @staticmethod
     def book_already_exist(book_name: str, books: list):
         if book_name:
-            if any(book["book_name"].upper() == book_name.upper() for book in books):
+            if any(book.get("book_name").upper() == book_name.upper() for book in books):
                 raise HTTPException(status_code=400, detail="This book already exist in the list.")
 
     @staticmethod

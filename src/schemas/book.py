@@ -1,5 +1,5 @@
 import uuid
-from src.enums.GenreEnum import GenreEnum
+from src.enums.BookEnum import GenreEnum
 from typing import Optional
 from pydantic import BaseModel, Field, field_validator
 

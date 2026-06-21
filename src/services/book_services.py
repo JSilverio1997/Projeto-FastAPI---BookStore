@@ -2,15 +2,16 @@ import random
 
 
 from fastapi.encoders import jsonable_encoder
-from src.repositories.repository import (get_all_books,
-                                         get_book_by_index,
-                                         add_book,
-                                         delete_book_list,
-                                         update_book_dict,
-                                         replace_book_dict,
-                                         get_book_by_book_id)
+from src.repositories.book_repository import (get_all_books,
+                                              get_book_by_index,
+                                              add_book,
+                                              delete_book_list,
+                                              update_book_dict,
+                                              replace_book_dict,
+                                              get_book_by_book_id)
 from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookResponse, BookPaginatedResponse
 from src.exception.book_exception import BookException
+from sqlalchemy.orm import Session
 
 
 def list_all_books(book_name: str, genre: str) -> list[BookResponse] | BookResponse:
@@ -77,7 +78,7 @@ def list_random_book() -> BookResponse:
     return random.choice(book_random)
 
 
-def add_new_book(book_in: BookCreate) -> BookCreateOut:
+def add_new_book(book_in: BookCreate, db_session: Session) -> BookCreateOut:
     books = get_all_books()
 
     BookException.invalid_book_name(book_in)
@@ -85,17 +86,17 @@ def add_new_book(book_in: BookCreate) -> BookCreateOut:
     BookException.invalid_price(book_in)
 
     BookException.book_already_exist(book_in.book_name, books)
-
     book_response = BookCreateOut(**book_in.dict())
-    json_book_out = jsonable_encoder(book_response)
+    book_json_response = jsonable_encoder(book_response)
 
-    add_book(json_book_out)
+    book_created = add_book(book_json_response, db_session)
 
-    return book_response
+    if book_created:
+        return book_response
 
 
-def remove_book(book_id: str) -> None:
-    excluded = delete_book_list(book_id)
+def remove_book(book_id: str, db: Session) -> None:
+    excluded = delete_book_list(book_id, db)
     # if excluded:
     #     return {"message": f"The book {book_id} was deleted."}
     #
@@ -103,7 +104,7 @@ def remove_book(book_id: str) -> None:
         BookException.book_id_not_found(book_id)
 
 
-def update_book(book_id: str, book_update: BookPatch) -> BookResponse:
+def update_book_service(book_id: str, book_update: BookPatch, db: Session) -> BookResponse:
     books = get_all_books()
 
     BookException.invalid_book_name(book_update)
@@ -111,7 +112,7 @@ def update_book(book_id: str, book_update: BookPatch) -> BookResponse:
     BookException.invalid_price(book_update)
     BookException.invalid_genre(book_update)
 
-    updated_book = update_book_dict(book_id, book_update.dict(exclude_unset=True))
+    updated_book = update_book_dict(book_id, book_update.dict(exclude_unset=True), db)
     if updated_book is not None:
         BookResponse.book_id = book_id
         return BookResponse(**updated_book)
@@ -119,7 +120,7 @@ def update_book(book_id: str, book_update: BookPatch) -> BookResponse:
         BookException.book_id_not_found(book_id)
 
 
-def replace_book(book_id: str, book: BookPut) -> BookResponse:
+def replace_book(book_id: str, book: BookPut, db: Session) -> BookResponse:
     books = get_all_books()
 
     BookException.invalid_book_name(book)
@@ -127,7 +128,7 @@ def replace_book(book_id: str, book: BookPut) -> BookResponse:
     BookException.invalid_genre(book)
     BookException.invalid_price(book)
 
-    replaced_book = replace_book_dict(book_id, book.dict())
+    replaced_book = replace_book_dict(book_id, book.dict(), db)
     if replaced_book is not None:
         return BookResponse(**replaced_book)
 
