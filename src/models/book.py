@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Float
+from sqlalchemy import Column, String, Float, DateTime, func, text
 from src.database.database import Base
 
 
@@ -9,3 +9,6 @@ class Book(Base):
     book_name = Column(String(200), nullable=False, unique=True)
     price = Column(Float, nullable=False)
     genre = Column(String(20), nullable=False)
+    created_date = Column(DateTime, nullable=True, default=func.now())
+    updated_date = Column(DateTime, nullable=False, server_default=text("CURRENT_TIMESTAMP"),
+                          server_onupdate=text("CURRENT_TIMESTAMP"))

@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, para criação dos métodos de crud e utilização dele na camada de repositorio alem de alteracoes na camada de services e routes devido a necessidade de inclusao de db session">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, para retornar dados do banco de dados a partir da inicialização do evento startup do fast APi para carregar lista de dados json para trabalhar com dados no arquivo e persistir no arquivo e no banco, caso esteja tudo certo, persistindo a mudança antes no banco e depois refletindo no arquivo e criação de arquivo env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crud/book_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/crud/book_crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/book_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/book_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schemas/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/book.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782352299843</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Alterações efetuadas, para retornar dados do banco de dados a partir da inicialização do evento startup do fast APi para carregar lista de dados json para trabalhar com dados no arquivo e persistir no arquivo e no banco, caso esteja tudo certo, persistindo a mudança antes no banco e depois refletindo no arquivo e criação de arquivo env">
+      <option name="closed" value="true" />
+      <created>1782355889082</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1782355889082</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,6 +303,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;books.json&#10;#&#9;src/api/v1/book_routes.py&#10;#&#9;src/repositories/book_repository.py" />
     <MESSAGE value="Alterações efetuadas, criação classe de response, riação de conexão com banco de dados e restruturação para contemplar model para criação de tabela" />
     <MESSAGE value="Alterações efetuadas, para criação dos métodos de crud e utilização dele na camada de repositorio alem de alteracoes na camada de services e routes devido a necessidade de inclusao de db session" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas, para criação dos métodos de crud e utilização dele na camada de repositorio alem de alteracoes na camada de services e routes devido a necessidade de inclusao de db session" />
+    <MESSAGE value="Alterações efetuadas, para retornar dados do banco de dados a partir da inicialização do evento startup do fast APi para carregar lista de dados json para trabalhar com dados no arquivo e persistir no arquivo e no banco, caso esteja tudo certo, persistindo a mudança antes no banco e depois refletindo no arquivo e criação de arquivo env" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas, para retornar dados do banco de dados a partir da inicialização do evento startup do fast APi para carregar lista de dados json para trabalhar com dados no arquivo e persistir no arquivo e no banco, caso esteja tudo certo, persistindo a mudança antes no banco e depois refletindo no arquivo e criação de arquivo env" />
   </component>
 </project>

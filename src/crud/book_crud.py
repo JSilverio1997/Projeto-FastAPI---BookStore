@@ -4,6 +4,7 @@ from src.models.book import Book
 from src.schemas.book import BookDb
 
 
+
 def check_book_record(book_id: str, db: Session) -> int | None:
     check_book = db.query(exists().where(Book.book_id == book_id)).scalar()
     return check_book
@@ -48,6 +49,7 @@ def delete_book(book_id: str, db: Session) -> bool:
 
 def update_book_crud(book_id: str, book: dict, db: Session) -> Book | None:
     book_update_model = Book(**book)
+
     check_book_id = check_book_record(book_id, db)
     if check_book_id:
         book_db = return_obj_book_orm(book_id, db)
