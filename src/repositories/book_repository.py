@@ -4,8 +4,7 @@ from src.crud.book_crud import create_book, delete_book, update_book_crud
 from sqlalchemy.orm import Session
 
 
-BOOK_PATH = r"C:\Users\João\PycharmProjects\fastApi1HoraCurso\books.json"
-book_database = read_json(BOOK_PATH)
+book_database = read_json()
 
 
 def get_all_books() -> list[dict]:
@@ -39,7 +38,7 @@ def add_book(book: dict, db_session: Session) -> bool:
 
     if book_created:
         book_database.append(book)
-        write_json(BOOK_PATH, book_database)
+        write_json(book_database)
         book_created = True
 
     return book_created
@@ -54,7 +53,7 @@ def delete_book_list(book_id: str, db: Session) -> bool:
         if book_excluded:
             del book_database[index]
 
-            write_json(BOOK_PATH, book_database)
+            write_json(book_database)
             excluded = True
 
     return excluded
@@ -66,7 +65,7 @@ def save_book_changes(book_id: str, book: dict, db: Session) -> Optional[dict]:
         index = check_book_id(book_id)
         if index is not None:
             book_database[index].update(book)
-            write_json(BOOK_PATH, book_database)
+            write_json(book_database)
             return book_database[index]
 
     return None

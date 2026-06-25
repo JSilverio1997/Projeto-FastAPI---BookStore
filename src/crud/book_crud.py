@@ -14,7 +14,8 @@ def return_obj_book_orm(book_id: str, db: Session) -> Book | None:
 
 
 def read_books(db: Session) -> list:
-    return db.query(Book).all()
+    books = [BookDb.model_validate(book, from_attributes=True) for book in db.query(Book).all()]
+    return books
 
 
 def create_book(new_book: dict, db: Session) -> bool:

@@ -42,9 +42,6 @@ class BookResponse(BookCreateOut):
 class BookDb(BookCreateOut):
     book_id: str
 
-    class Config:
-        from_attributes = True  # habilita conversão a partir de ORM
-
 
 class BookPatch(BookCreate):
     book_name: Optional[str] = None
