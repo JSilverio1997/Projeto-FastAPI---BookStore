@@ -1,3 +1,4 @@
+import os
 from rich.console import Console
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -18,6 +19,7 @@ console = Console()
 def init_db() -> None:
     """Create database tables if they do not exist yet."""
     from src.models.book import Book  # noqa: F401
+
     Base.metadata.create_all(bind=engine)
 
 

@@ -1,6 +1,7 @@
 from sqlalchemy import exists
 from sqlalchemy.orm import Session
 from src.models.book import Book
+from src.schemas.book import BookDb
 
 
 def check_book_record(book_id: str, db: Session) -> int | None:

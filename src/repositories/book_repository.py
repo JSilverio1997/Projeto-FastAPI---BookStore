@@ -50,10 +50,10 @@ def delete_book_list(book_id: str, db: Session) -> bool:
     index = check_book_id(book_id)
 
     if index is not None:
-        del book_database[index]
-
         book_excluded = delete_book(book_id, db)
         if book_excluded:
+            del book_database[index]
+
             write_json(BOOK_PATH, book_database)
             excluded = True
 
