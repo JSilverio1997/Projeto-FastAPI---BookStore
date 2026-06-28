@@ -37,19 +37,19 @@ class BookException:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=exception_message)
 
     @staticmethod
-    def invalid_book_name(book: BookCreate):
-        exception_message = RuleBookException.invalid_book_name(book)
+    def invalid_book_name(book_name: str):
+        exception_message = RuleBookException.invalid_book_name(book_name)
         if exception_message is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=exception_message)
 
     @staticmethod
-    def invalid_price(book: BookCreate):
-        exception_message = RuleBookException.invalid_price(book)
+    def invalid_price(price: float):
+        exception_message = RuleBookException.invalid_price(price)
         if exception_message is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=exception_message)
 
     @staticmethod
-    def invalid_genre(book: BookCreate):
-        exception_message = RuleBookException.invalid_genre(book)
+    def invalid_genre(genre: str):
+        exception_message = RuleBookException.invalid_genre(genre)
         if exception_message is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=exception_message)

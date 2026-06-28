@@ -34,23 +34,22 @@ class RuleBookException:
         return f"Book with id '{book_id}' does not exist."
 
     @staticmethod
-    def invalid_book_name(book: BookCreate):
-        if book.book_name is not None:
-            if not book.book_name.strip():
+    def invalid_book_name(book_name: str):
+        if book_name is not None:
+            if not book_name.strip():
                 return "The Book name must be to fill."
         return None
 
     @staticmethod
-    def invalid_price(book: BookCreate):
-        if book.price is not None:
-            if book.price <= 0:
-                return "The price is not allow to be less or equal 0."
+    def invalid_price(price: float):
+        if price <= 0:
+            return "The price is not allow to be less or equal 0."
         return None
 
     @staticmethod
-    def invalid_genre(book: BookCreate):
-        if book.genre is not None:
-            if book.genre not in (GenreEnum.FICTION, GenreEnum.NO_FICTION):
+    def invalid_genre(genre: str):
+        if genre is not None:
+            if genre not in (GenreEnum.FICTION, GenreEnum.NO_FICTION):
                 return "The genre field is not allow to be empty and values must be Fiction or Non_Fiction."
 
         return None

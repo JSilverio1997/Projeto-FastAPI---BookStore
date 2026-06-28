@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, de criação de colunas de data de criacao e alteracao realizamento de logica para popular colunas no momento que criar o objeto de inserção e logica para atualizao de campo de data apenas quando objeto for um objeto de atualização.">
-      <change afterPath="$PROJECT_DIR$/src/exception/book_exception_csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exception/rules_book_exception.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/v1/book_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/book_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crud/book_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/crud/book_crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception_http.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/book_exception_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception_csv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/book_exception_http.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception_http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/rules_book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/rules_book_exception.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/book_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/book_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schemas/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/book.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/book_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/book_services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +311,23 @@
       <option name="project" value="LOCAL" />
       <updated>1782595768411</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
+      <option name="closed" value="true" />
+      <created>1782669701819</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1782669701819</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
+      <option name="closed" value="true" />
+      <created>1782669726544</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1782669726544</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,6 +349,7 @@
     <MESSAGE value="Alterações efetuadas, para criação dos métodos de crud e utilização dele na camada de repositorio alem de alteracoes na camada de services e routes devido a necessidade de inclusao de db session" />
     <MESSAGE value="Alterações efetuadas, para retornar dados do banco de dados a partir da inicialização do evento startup do fast APi para carregar lista de dados json para trabalhar com dados no arquivo e persistir no arquivo e no banco, caso esteja tudo certo, persistindo a mudança antes no banco e depois refletindo no arquivo e criação de arquivo env" />
     <MESSAGE value="Alterações efetuadas, de criação de colunas de data de criacao e alteracao realizamento de logica para popular colunas no momento que criar o objeto de inserção e logica para atualizao de campo de data apenas quando objeto for um objeto de atualização." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas, de criação de colunas de data de criacao e alteracao realizamento de logica para popular colunas no momento que criar o objeto de inserção e logica para atualizao de campo de data apenas quando objeto for um objeto de atualização." />
+    <MESSAGE value="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros." />
   </component>
 </project>

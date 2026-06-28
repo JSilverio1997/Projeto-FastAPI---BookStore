@@ -52,12 +52,13 @@ def add_book_by_csv(db_session: Session) -> dict | None:
 
     try:
         for book in books:
-            new_book = BookCreateOut(**book)
+            print(book)
+            ValidationRulesBookCsv.invalid_book_name(book.get('book_name'))
+            ValidationRulesBookCsv.invalid_price(float(book.get('price')))
+            ValidationRulesBookCsv.invalid_genre(book.get('genre'))
+            ValidationRulesBookCsv.book_already_exist(book.get('book_name'), book_database)
 
-            ValidationRulesBookCsv.invalid_book_name(new_book)
-            ValidationRulesBookCsv.invalid_price(new_book)
-            ValidationRulesBookCsv.invalid_genre(new_book)
-            ValidationRulesBookCsv.book_already_exist(new_book.book_name, book_database)
+            new_book = BookCreateOut(**book)
 
             book_json_response = jsonable_encoder(new_book)
             book_created = create_book(book_json_response, db_session)

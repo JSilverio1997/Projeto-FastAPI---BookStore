@@ -81,9 +81,9 @@ def list_random_book() -> BookResponse:
 def add_new_book(book_in: BookCreate, db_session: Session) -> BookCreateOut:
     books = get_all_books()
 
-    BookException.invalid_book_name(book_in)
-    BookException.invalid_genre(book_in)
-    BookException.invalid_price(book_in)
+    BookException.invalid_book_name(book_in.book_name)
+    BookException.invalid_genre(book_in.genre)
+    BookException.invalid_price(book_in.price)
 
     BookException.book_already_exist(book_in.book_name, books)
     book_response = BookCreateOut(**book_in.dict())
