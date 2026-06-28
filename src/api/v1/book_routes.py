@@ -2,7 +2,7 @@ from typing import Optional
 
 from starlette import status
 from fastapi import APIRouter, Query, Depends
-from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookPaginatedResponse
+from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookPaginatedResponse, BookCreatedByCsv
 from src.services.book_services import (list_all_books,
                                         list_book_by_position,
                                         list_random_book,
@@ -11,7 +11,8 @@ from src.services.book_services import (list_all_books,
                                         update_book_service,
                                         replace_book,
                                         return_book_by_book_id,
-                                        list_paginate_books)
+                                        list_paginate_books,
+                                        add_new_book_by_csv)
 from sqlalchemy.orm import Session
 from src.database.database import get_db
 
@@ -65,11 +66,20 @@ async def create_book(book_in: BookCreate, db_session: Session = Depends(get_db)
     return add_new_book(book_in, db_session)
 
 
+@router.post("/load_csv", summary="Read the csv file to insert the books datas in the database",
+             status_code=status.HTTP_200_OK,
+             description="Read the csv file to insert the books datas in the database",
+             response_model=BookCreatedByCsv | None)
+async def add_book_data_file(db_session: Session = Depends(get_db)) -> BookCreatedByCsv | None:
+    return add_new_book_by_csv(db_session)
+
+
 @router.patch("/{book_id}", summary="Update some attributes a book", status_code=status.HTTP_200_OK,
               description="Updates one or more attributes of an existing book. Uses exclude_unset=True to apply partial"
                           " updates. If the book does not exist, a 404 error is returned.",
               response_model=BookCreateOut)
-async def update_attributes_book(book_id: str, book_update: BookPatch, db_session: Session = Depends(get_db)) -> BookCreateOut:
+async def update_attributes_book(book_id: str, book_update: BookPatch,
+                                 db_session: Session = Depends(get_db)) -> BookCreateOut:
     return update_book_service(book_id, book_update, db_session)
 
 

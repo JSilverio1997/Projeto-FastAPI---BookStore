@@ -61,3 +61,7 @@ class BookPaginatedResponse(BaseModel):
     total: int
     data: list[BookCreateOut]
 
+
+class BookCreatedByCsv(BaseModel):
+    total_rows: int
+    total_rows_inserted: int

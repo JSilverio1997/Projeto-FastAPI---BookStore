@@ -1,6 +1,4 @@
 import random
-from typing import Optional
-
 from fastapi.encoders import jsonable_encoder
 from src.repositories.book_repository import (get_all_books,
                                               get_book_by_index,
@@ -8,9 +6,11 @@ from src.repositories.book_repository import (get_all_books,
                                               delete_book_list,
                                               update_book_dict,
                                               replace_book_dict,
-                                              get_book_by_book_id)
-from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookResponse, BookPaginatedResponse
-from src.exception.book_exception import BookException
+                                              get_book_by_book_id,
+                                              add_book_by_csv)
+from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookResponse, BookPaginatedResponse, \
+    BookCreatedByCsv
+from src.exception.book_exception_http import BookException
 from sqlalchemy.orm import Session
 
 
@@ -93,6 +93,16 @@ def add_new_book(book_in: BookCreate, db_session: Session) -> BookCreateOut:
 
     if book_created:
         return book_response
+
+
+def add_new_book_by_csv(db_session: Session) -> BookCreatedByCsv | None:
+    books = add_book_by_csv(db_session)
+    if books is not None:
+        books_created = BookCreatedByCsv(**books)
+        print(books)
+        return books_created
+
+    return None
 
 
 def remove_book(book_id: str, db: Session) -> None:

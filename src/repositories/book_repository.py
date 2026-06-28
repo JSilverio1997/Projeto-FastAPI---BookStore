@@ -1,8 +1,10 @@
-from src.utils.utils import read_json, write_json
+from fastapi.encoders import jsonable_encoder
+from src.utils.utils import read_json, write_json, read_csv, write_csv
 from typing import Any, Optional
 from src.crud.book_crud import create_book, delete_book, update_book_crud
 from sqlalchemy.orm import Session
-
+from src.schemas.book import BookCreateOut
+from src.exception.book_exception_csv import BookExceptionCsv, ValidationRulesBookCsv
 
 book_database = read_json()
 
@@ -42,6 +44,35 @@ def add_book(book: dict, db_session: Session) -> bool:
         book_created = True
 
     return book_created
+
+
+def add_book_by_csv(db_session: Session) -> dict | None:
+    books = read_csv()
+    count_books_created = 0
+
+    try:
+        for book in books:
+            new_book = BookCreateOut(**book)
+
+            ValidationRulesBookCsv.invalid_book_name(new_book)
+            ValidationRulesBookCsv.invalid_price(new_book)
+            ValidationRulesBookCsv.invalid_genre(new_book)
+            ValidationRulesBookCsv.book_already_exist(new_book.book_name, book_database)
+
+            book_json_response = jsonable_encoder(new_book)
+            book_created = create_book(book_json_response, db_session)
+
+            if book_created:
+                count_books_created += 1
+
+            if len(books) == count_books_created:
+                book_database.append(book_json_response)
+                write_json(book_database)
+
+    except BookExceptionCsv as error:
+        print(error)
+
+    return {"total_rows": len(books), "total_rows_inserted": count_books_created}
 
 
 def delete_book_list(book_id: str, db: Session) -> bool:

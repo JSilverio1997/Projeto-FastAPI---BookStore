@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, de criação de colunas de data de criacao e alteracao realizamento de logica para popular colunas no momento que criar o objeto de inserção e logica para atualizao de campo de data apenas quando objeto for um objeto de atualização." />
+    <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas, de criação de colunas de data de criacao e alteracao realizamento de logica para popular colunas no momento que criar o objeto de inserção e logica para atualizao de campo de data apenas quando objeto for um objeto de atualização.">
+      <change afterPath="$PROJECT_DIR$/src/exception/book_exception_csv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exception/rules_book_exception.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/v1/book_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/book_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crud/book_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/crud/book_crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception_http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/book_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/book_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/book_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/book_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +53,7 @@
     &quot;Python.models.executor&quot;: &quot;Run&quot;,
     &quot;Python.services (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.services.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;FeaturesTrainerSettingsPanel&quot;
@@ -53,7 +68,7 @@
       <recent name="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\api" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.book">
+  <component name="RunManager" selected="Python.utils">
     <configuration name="book" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fastApi1HoraCurso" />
       <option name="ENV_FILES" value="" />
@@ -68,28 +83,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/schemas/book.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="book_services" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fastApi1HoraCurso" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/services" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\João\PycharmProjects\fastApi1HoraCurso\src\services\book_services.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,13 +157,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApi1HoraCurso" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/utils/utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.book" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.models" />
         <item itemvalue="Python.connection_db" />
-        <item itemvalue="Python.book_services" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782359559068</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Alterações efetuadas, de criação de colunas de data de criacao e alteracao realizamento de logica para popular colunas no momento que criar o objeto de inserção e logica para atualizao de campo de data apenas quando objeto for um objeto de atualização.">
+      <option name="closed" value="true" />
+      <created>1782595768411</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1782595768411</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

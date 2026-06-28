@@ -10,5 +10,4 @@ class Book(Base):
     price = Column(Float, nullable=False)
     genre = Column(String(20), nullable=False)
     created_date = Column(DateTime, nullable=True, default=func.now())
-    updated_date = Column(DateTime, nullable=False, server_default=text("CURRENT_TIMESTAMP"),
-                          server_onupdate=text("CURRENT_TIMESTAMP"))
+    updated_date = Column(DateTime, nullable=False,server_onupdate=text("CURRENT_TIMESTAMP"))
