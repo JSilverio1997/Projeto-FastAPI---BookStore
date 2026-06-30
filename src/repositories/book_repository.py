@@ -6,14 +6,17 @@ from sqlalchemy.orm import Session
 from src.schemas.book import BookCreateOut
 from src.exception.book_exception_csv import BookExceptionCsv, ValidationRulesBookCsv
 
-book_database = read_json()
+
+def load_book_database() -> list[dict]:
+    return read_json()
 
 
 def get_all_books() -> list[dict]:
-    return book_database
+    return load_book_database()
 
 
 def get_book_by_index(index: int) -> Any:
+    book_database = load_book_database()
     if index < 0 or index >= len(book_database):
         return None
 
@@ -21,6 +24,7 @@ def get_book_by_index(index: int) -> Any:
 
 
 def get_book_by_book_id(book_id: str) -> dict | None:
+    book_database = load_book_database()
     for book in book_database:
         if book.get("book_id") == book_id:
             return book
@@ -29,6 +33,7 @@ def get_book_by_book_id(book_id: str) -> dict | None:
 
 
 def check_book_id(book_id: str) -> int | None:
+    book_database = load_book_database()
     for index, book in enumerate(book_database):
         if book.get("book_id") == book_id:
             return index
@@ -39,6 +44,7 @@ def add_book(book: dict, db_session: Session) -> bool:
     book_created = create_book(book, db_session)
 
     if book_created:
+        book_database = load_book_database()
         book_database.append(book)
         write_json(book_database)
         book_created = True
@@ -54,6 +60,7 @@ def add_book_by_csv(db_session: Session) -> dict:
     except Exception as error:
         return {"error csv": str(error)}
 
+    book_database = load_book_database()
     for book in books:
         try:
             print(book)
@@ -70,9 +77,8 @@ def add_book_by_csv(db_session: Session) -> dict:
             if book_created:
                 count_books_created += 1
                 write_csv(book_json_response)
-
-            book_database.append(book_json_response)
-            write_json(book_database)
+                book_database.append(book_json_response)
+                write_json(book_database)
 
         except BookExceptionCsv as error:
             print(error)
@@ -83,6 +89,7 @@ def add_book_by_csv(db_session: Session) -> dict:
 
 def delete_book_list(book_id: str, db: Session) -> bool:
     excluded = False
+    book_database = load_book_database()
     index = check_book_id(book_id)
 
     if index is not None:
@@ -99,6 +106,7 @@ def delete_book_list(book_id: str, db: Session) -> bool:
 def save_book_changes(book_id: str, book: dict, db: Session) -> Optional[dict]:
     book_updated = update_book_crud(book_id, book, db)
     if book_updated is not None or book_updated:
+        book_database = load_book_database()
         index = check_book_id(book_id)
         if index is not None:
             book_database[index].update(book)
