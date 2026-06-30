@@ -10,13 +10,14 @@ from src.repositories.book_repository import (get_all_books,
                                               add_book_by_csv)
 from src.schemas.book import BookCreate, BookCreateOut, BookPatch, BookPut, BookResponse, BookPaginatedResponse, \
     BookCreatedByCsv
-from src.exception.book_exception_http import BookException
+from src.exception.book_exception_http import BookExceptionHttp
 from sqlalchemy.orm import Session
+from fastapi.exceptions import HTTPException
 
 
 def list_all_books(book_name: str, genre: str) -> list[BookResponse] | BookResponse:
     books = get_all_books()
-    BookException.book_list_empty(books)
+    BookExceptionHttp.book_list_empty(books)
 
     list_book_outs = []
     for book in books:
@@ -37,7 +38,7 @@ def list_all_books(book_name: str, genre: str) -> list[BookResponse] | BookRespo
         else:
             list_book_outs.append(book_response)
 
-    BookException.book_list_empty(list_book_outs)
+    BookExceptionHttp.book_list_empty(list_book_outs)
 
     return list_book_outs
     # return [BookOut(**book) for book in books]
@@ -54,26 +55,26 @@ def list_paginate_books(page: int, size: int) -> BookPaginatedResponse:
         total=len(books),
         data=[BookCreateOut(**book) for book in books[start:end]]
     )
-    BookException.book_list_empty(books[start:end])
+    BookExceptionHttp.book_list_empty(books[start:end])
 
     return books_items
 
 
 def list_book_by_position(index: int) -> BookResponse:
     book = get_book_by_index(index)
-    BookException.index_book_not_found(index, book)
+    BookExceptionHttp.index_book_not_found(index, book)
     return BookResponse(**book)
 
 
 def return_book_by_book_id(book_id: str) -> BookResponse:
     book = get_book_by_book_id(book_id)
-    BookException.book_not_found(book)
+    BookExceptionHttp.book_not_found(book)
     return BookResponse(**book)
 
 
 def list_random_book() -> BookResponse:
     book_random = get_all_books()
-    BookException.book_list_empty(book_random)
+    BookExceptionHttp.book_list_empty(book_random)
 
     return random.choice(book_random)
 
@@ -81,11 +82,11 @@ def list_random_book() -> BookResponse:
 def add_new_book(book_in: BookCreate, db_session: Session) -> BookCreateOut:
     books = get_all_books()
 
-    BookException.invalid_book_name(book_in.book_name)
-    BookException.invalid_genre(book_in.genre)
-    BookException.invalid_price(book_in.price)
+    BookExceptionHttp.invalid_book_name(book_in.book_name)
+    BookExceptionHttp.invalid_genre(book_in.genre)
+    BookExceptionHttp.invalid_price(book_in.price)
 
-    BookException.book_already_exist(book_in.book_name, books)
+    BookExceptionHttp.book_already_exist(book_in.book_name, books)
     book_response = BookCreateOut(**book_in.dict())
     book_json_response = jsonable_encoder(book_response)
 
@@ -95,14 +96,17 @@ def add_new_book(book_in: BookCreate, db_session: Session) -> BookCreateOut:
         return book_response
 
 
-def add_new_book_by_csv(db_session: Session) -> BookCreatedByCsv | None:
+def add_new_book_by_csv(db_session: Session) -> dict | BookCreatedByCsv:
     books = add_book_by_csv(db_session)
-    if books is not None:
+
+    try:
         books_created = BookCreatedByCsv(**books)
         print(books)
         return books_created
 
-    return None
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=400, detail=books)
 
 
 def remove_book(book_id: str, db: Session) -> None:
@@ -111,35 +115,35 @@ def remove_book(book_id: str, db: Session) -> None:
     #     return {"message": f"The book {book_id} was deleted."}
     #
     if excluded is False:
-        BookException.book_id_not_found(book_id)
+        BookExceptionHttp.book_id_not_found(book_id)
 
 
 def update_book_service(book_id: str, book_update: BookPatch, db: Session) -> BookResponse:
     books = get_all_books()
 
-    BookException.invalid_book_name(book_update)
-    BookException.book_already_exist(book_update.book_name, books)
-    BookException.invalid_price(book_update)
-    BookException.invalid_genre(book_update)
+    BookExceptionHttp.invalid_book_name(book_update)
+    BookExceptionHttp.book_already_exist(book_update.book_name, books)
+    BookExceptionHttp.invalid_price(book_update)
+    BookExceptionHttp.invalid_genre(book_update)
 
     updated_book = update_book_dict(book_id, book_update.dict(exclude_unset=True), db)
     if updated_book is not None:
         BookResponse.book_id = book_id
         return BookResponse(**updated_book)
     else:
-        BookException.book_id_not_found(book_id)
+        BookExceptionHttp.book_id_not_found(book_id)
 
 
 def replace_book(book_id: str, book: BookPut, db: Session) -> BookResponse:
     books = get_all_books()
 
-    BookException.invalid_book_name(book)
-    BookException.book_already_exist(book.book_name, books)
-    BookException.invalid_genre(book)
-    BookException.invalid_price(book)
+    BookExceptionHttp.invalid_book_name(book)
+    BookExceptionHttp.book_already_exist(book.book_name, books)
+    BookExceptionHttp.invalid_genre(book)
+    BookExceptionHttp.invalid_price(book)
 
     replaced_book = replace_book_dict(book_id, book.dict(), db)
     if replaced_book is not None:
         return BookResponse(**replaced_book)
 
-    BookException.book_id_not_found(book_id)
+    BookExceptionHttp.book_id_not_found(book_id)

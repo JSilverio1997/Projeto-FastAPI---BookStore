@@ -1,10 +1,9 @@
 from fastapi import HTTPException
-from src.schemas.book import BookCreate
 from src.exception.rules_book_exception import RuleBookException
 from starlette import status
 
 
-class BookException:
+class BookExceptionHttp:
 
     @staticmethod
     def index_book_not_found(index: int, book: dict):
@@ -53,3 +52,4 @@ class BookException:
         exception_message = RuleBookException.invalid_genre(genre)
         if exception_message is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=exception_message)
+

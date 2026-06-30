@@ -1,5 +1,5 @@
 from fastapi.encoders import jsonable_encoder
-from src.utils.utils import read_json, write_json, read_csv, write_csv
+from src.utils.utils import read_json, write_json, read_csv, write_csv, write_log
 from typing import Any, Optional
 from src.crud.book_crud import create_book, delete_book, update_book_crud
 from sqlalchemy.orm import Session
@@ -46,12 +46,16 @@ def add_book(book: dict, db_session: Session) -> bool:
     return book_created
 
 
-def add_book_by_csv(db_session: Session) -> dict | None:
-    books = read_csv()
-    count_books_created = 0
-
+def add_book_by_csv(db_session: Session) -> dict:
     try:
-        for book in books:
+        books = read_csv()
+        count_books_created = 0
+
+    except Exception as error:
+        return {"error csv": str(error)}
+
+    for book in books:
+        try:
             print(book)
             ValidationRulesBookCsv.invalid_book_name(book.get('book_name'))
             ValidationRulesBookCsv.invalid_price(float(book.get('price')))
@@ -65,13 +69,14 @@ def add_book_by_csv(db_session: Session) -> dict | None:
 
             if book_created:
                 count_books_created += 1
+                write_csv(book_json_response)
 
-            if len(books) == count_books_created:
-                book_database.append(book_json_response)
-                write_json(book_database)
+            book_database.append(book_json_response)
+            write_json(book_database)
 
-    except BookExceptionCsv as error:
-        print(error)
+        except BookExceptionCsv as error:
+            print(error)
+            write_log(book, str(error))
 
     return {"total_rows": len(books), "total_rows_inserted": count_books_created}
 

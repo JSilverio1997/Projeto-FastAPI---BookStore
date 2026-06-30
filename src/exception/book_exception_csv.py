@@ -1,5 +1,4 @@
 from src.exception.rules_book_exception import RuleBookException
-from src.schemas.book import BookCreate
 
 
 class BookExceptionCsv(Exception):

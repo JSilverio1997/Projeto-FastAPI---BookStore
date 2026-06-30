@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books.csv" beforeDir="false" afterPath="$PROJECT_DIR$/books.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/v1/book_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/v1/book_routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exception/book_exception_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception_csv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exception/book_exception_http.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/book_exception_http.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/rules_book_exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/rules_book_exception.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repositories/book_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/book_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/book_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/book_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

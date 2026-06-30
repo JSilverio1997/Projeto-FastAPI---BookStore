@@ -69,8 +69,8 @@ async def create_book(book_in: BookCreate, db_session: Session = Depends(get_db)
 @router.post("/load_csv", summary="Read the csv file to insert the books datas in the database",
              status_code=status.HTTP_200_OK,
              description="Read the csv file to insert the books datas in the database",
-             response_model=BookCreatedByCsv | None)
-async def add_book_data_file(db_session: Session = Depends(get_db)) -> BookCreatedByCsv | None:
+             response_model=dict | BookCreatedByCsv)
+async def add_book_data_file(db_session: Session = Depends(get_db)) -> dict | BookCreatedByCsv:
     return add_new_book_by_csv(db_session)
 
 
