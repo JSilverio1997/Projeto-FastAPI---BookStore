@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="819cfbed-c810-44be-8077-befda3067ace" name="Changes" comment="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books.csv" beforeDir="false" afterPath="$PROJECT_DIR$/books.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/books.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books_log.log" beforeDir="false" afterPath="$PROJECT_DIR$/books_log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/book_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/book_repository.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,7 +338,23 @@
       <option name="project" value="LOCAL" />
       <updated>1782790047918</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
+      <option name="closed" value="true" />
+      <created>1782794521966</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1782794521966</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Alterações efetuadas,alterção desacomplamento de regras de exceções de rotas da API para ser possivel usar no processo de carga csv desenolvido, e processo de carga desenvolvido para insert de livros.">
+      <option name="closed" value="true" />
+      <created>1782794561111</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1782794561111</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

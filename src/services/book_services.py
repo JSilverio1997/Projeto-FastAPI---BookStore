@@ -121,10 +121,10 @@ def remove_book(book_id: str, db: Session) -> None:
 def update_book_service(book_id: str, book_update: BookPatch, db: Session) -> BookResponse:
     books = get_all_books()
 
-    BookExceptionHttp.invalid_book_name(book_update)
+    BookExceptionHttp.invalid_book_name(book_update.book_name)
     BookExceptionHttp.book_already_exist(book_update.book_name, books)
-    BookExceptionHttp.invalid_price(book_update)
-    BookExceptionHttp.invalid_genre(book_update)
+    BookExceptionHttp.invalid_price(float(book_update.price))
+    BookExceptionHttp.invalid_genre(book_update.genre)
 
     updated_book = update_book_dict(book_id, book_update.dict(exclude_unset=True), db)
     if updated_book is not None:
@@ -137,10 +137,10 @@ def update_book_service(book_id: str, book_update: BookPatch, db: Session) -> Bo
 def replace_book(book_id: str, book: BookPut, db: Session) -> BookResponse:
     books = get_all_books()
 
-    BookExceptionHttp.invalid_book_name(book)
+    BookExceptionHttp.invalid_book_name(book.book_name)
     BookExceptionHttp.book_already_exist(book.book_name, books)
-    BookExceptionHttp.invalid_genre(book)
-    BookExceptionHttp.invalid_price(book)
+    BookExceptionHttp.invalid_genre(book.genre)
+    BookExceptionHttp.invalid_price(float(book.price))
 
     replaced_book = replace_book_dict(book_id, book.dict(), db)
     if replaced_book is not None:
