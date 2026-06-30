@@ -1,0 +1,54 @@
+book_name: Green Lantern Orange Agent
+price: 89.90
+genre: Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:25:46
+____________________________________________________________________________________________________
+book_name: Green Lantern The Rage of Red lanterns
+price:  98
+genre: Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:25:46
+____________________________________________________________________________________________________
+book_name: Yellow Daredevil
+price: 98.96
+genre: Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:25:46
+____________________________________________________________________________________________________
+book_name: Batman Dark Knight 1
+price:  0
+genre: Non_Fiction
+Error: The price is not allow to be less or equal 0.
+Datetime of Error: 30/06/2026/ 00:25:46
+____________________________________________________________________________________________________
+book_name: Deadpool the kill of marvel university
+price:  58 
+genre: Non_Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:25:46
+____________________________________________________________________________________________________
+book_name: Green Lantern Orange Agent
+price: 89.90
+genre: Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:26:22
+____________________________________________________________________________________________________
+book_name: Green Lantern The Rage of Red lanterns
+price:  98
+genre: Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:26:22
+____________________________________________________________________________________________________
+book_name: Yellow Daredevil
+price: 98.96
+genre: Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:26:22
+____________________________________________________________________________________________________
+book_name: Deadpool the kill of marvel university
+price:  58 
+genre: Non_Fiction
+Error: This book already exist in the list.
+Datetime of Error: 30/06/2026/ 00:26:22
+____________________________________________________________________________________________________
